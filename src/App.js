@@ -1,16 +1,14 @@
 // import logo from './logo.svg';
 import './App.css';
-import AppDate from './appDate';
-import Counter from './counter'
-import Toggle from './toggle';
+import React from 'react'
+import AppHw from './comps_hw/appHw';
+
 
 function App() {
   return (
-    <div className="App">
-      <AppDate></AppDate>
-    {/* <Counter></Counter>
-    <Toggle></Toggle> */}
-    </div>
+<React.Fragment>
+<AppHw></AppHw>
+</React.Fragment>
   );
 }
 
