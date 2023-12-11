@@ -28,7 +28,7 @@ const doApi=async()=>{
 {ar.map(item=>{
   return <VipItem key={item.name} item={item}></VipItem>
 })}
-{ar.length<1&&<h2>loading...</h2>}
+
 </div>
 
     </div>
