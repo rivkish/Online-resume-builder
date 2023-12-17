@@ -15,6 +15,7 @@ const Header = () => {
         <li> <Link to="/employee" className='m-2'>Employee</Link></li>
         <li><Link to="/form" className='m-2'>Form</Link></li>
         <li><Link to="/counter" className='m-2'>Counter</Link></li>
+        <li><Link to="/todo" className='m-2'>Todo</Link></li>
         {/* <li> <Link to="/todo" className='m-2'>Todo</Link></li> */}
     </ul>
                      
