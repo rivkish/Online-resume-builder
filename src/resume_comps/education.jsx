@@ -15,10 +15,6 @@ const Education = (props) => {
     // const {experiance}=useSelector(myStore=>myStore.resumeSlice)
     let item=props.item
 
-    const onSub = (dataBody) => {
-        dataBody.id = uuid4()
-        dispatch(addEducation({ work: dataBody }))
-    }
     return (
         <div>
             <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -31,7 +27,7 @@ const Education = (props) => {
                     </h2>
                     <div id={`flush-collapse${item.id}`} className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div className="accordion-body">
-                            <form onSubmit={handleSubmit(onSub)} className='col-md-6 p-2'>
+                            <form className='col-md-6 p-2'>
                                 <label>School name: </label>
                                 <input ref={nameRef}  type="text" className='form-control' onInput={()=>{
                                     dispatch(changeEducation({id:item.id,school:nameRef.current.value}))

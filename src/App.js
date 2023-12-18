@@ -5,20 +5,18 @@ import { Provider } from 'react-redux';
 import './App.css';
 import Header from "./header";
 import Home from "./comps/home";
-import About from "./comps/about";
-import { Employee } from "./comps/employee";
-import Form from "./comps/form";
-import Counter from "./redux_comps/counter";
-// import AppTodo from "./todo_redux_comps/appTodo";
 
-import counterSlice from "./features/counterSlice"
-import todoSlice from "./features/resumeSlice"
-import AppTodo from './todo_redux_comps/appTodo';
+
+import resumeSlice from "./features/resumeSlice"
+import userSlice from "./features/userSlice"
+import AppForm from './resume_comps/appForm';
+import Register from './comps/register';
+import Main from './comps/main';
 
 const myStore=configureStore({
   reducer:{
-    counterSlice,
-    todoSlice
+    resumeSlice,
+    userSlice
   }
 })
 
@@ -30,12 +28,9 @@ function App() {
     <Header></Header>
     <Routes>
       <Route index element={<Home></Home>}></Route>
-      <Route path="/about" element={<About></About>}></Route>
-      <Route path="/employee" element={<Employee></Employee>}></Route>
-      <Route path="/employee/:company" element={<Employee></Employee>}></Route>
-      <Route path="/form" element={<Form></Form>}></Route>
-      <Route path="/counter" element={<Counter></Counter>}></Route>
-      <Route path="/todo" element={<AppTodo></AppTodo>}></Route>
+      <Route path="/resume" element={<AppForm></AppForm>}></Route>
+      <Route path="/register" element={<Register></Register>}></Route>
+      <Route path="/main" element={<Main></Main>}></Route>
       <Route path="*" element={<h2>404 not found</h2>}></Route>
     </Routes>
     </Provider>

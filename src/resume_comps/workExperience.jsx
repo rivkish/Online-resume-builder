@@ -11,6 +11,7 @@ const WorkExperience = (props) => {
     const nameRef = useRef()
     const timesRef = useRef()
     const timeeRef = useRef()
+    const descRef = useRef()
     const dispatch = useDispatch();
     const {experiance}=useSelector(myStore=>myStore.resumeSlice)
     let item=props.item
@@ -31,7 +32,7 @@ const WorkExperience = (props) => {
                     </h2>
                     <div id={`flush-collapse${item.id}`} className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div className="accordion-body">
-                            <form onSubmit={handleSubmit(onSub)} className='col-md-6 p-2'>
+                            <form onSubmit={handleSubmit(onSub)} className=' p-2'>
                                 <label>Company name: </label>
                                 <input ref={nameRef}  type="text" className='form-control' onInput={()=>{
                                     dispatch(changeWork({id:item.id,companyName:nameRef.current.value}))
@@ -47,6 +48,10 @@ const WorkExperience = (props) => {
                                 <input ref={timeeRef} type="date" className='form-control' onInput={()=>{
                                      dispatch(changeWork({id:item.id,timeEnd:timeeRef.current.value}))
                                 }}/>
+                                <label>Description: </label>
+                                <input ref={descRef}  type="text" className='form-control' onInput={()=>{
+                                    dispatch(changeWork({id:item.id,description:descRef.current.value}))
+                                    }}/>
 
                                 {/* <button>save</button> */}
                             </form>

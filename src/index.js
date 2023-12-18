@@ -8,8 +8,8 @@ import AppForm from './resume_comps/appForm';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <AppForm></AppForm>
+    <App />
+    {/* <AppForm></AppForm> */}
   </React.StrictMode>
 );
 

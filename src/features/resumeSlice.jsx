@@ -2,10 +2,15 @@ import {createSlice} from "@reduxjs/toolkit"
 
 const initValue={
     userName:"Full name",
+    phone:"",
+    email:"",
+    profile:"",
     title:"",
 experiance:[],
 educations:[],
-image:""
+image:"",
+skills:[]
+
 }
 
 const resumeSlice=createSlice({
@@ -28,6 +33,8 @@ const resumeSlice=createSlice({
                     item.companyName=actions.payload.companyName || item.companyName
                     item.timeStart=actions.payload.timeStart || item.timeStart
                     item.timeEnd=actions.payload.timeEnd || item.timeEnd
+                    item.description=actions.payload.description || item.description
+
                 }
             })
         },
@@ -54,10 +61,49 @@ const resumeSlice=createSlice({
         },
         changeTitle:(state,actions)=>{
             state.title=actions.payload.title
+        },
+        changeProfile:(state,actions)=>{
+            state.profile=actions.payload.profile
+        },
+        addSkill:(state,actions)=>{
+            state.skills.push(actions.payload.skill)
+        },
+        deleteSkill:(state,actions)=>{
+            let id=actions.payload.id;
+            let temp=state.skills.filter(item=>item.id!=id)
+            state.skills=temp
+        },
+        changeSkill:(state,actions)=>{
+            let id=actions.payload.id;
+            state.skills.map(item=>{
+                if (item.id==id){
+                    item.skill=actions.payload.skill || item.skill
+                }
+            })
+        },
+        changePhone:(state,actions)=>{
+            state.phone=actions.payload.phone
+        },
+        changeEmail:(state,actions)=>{
+            state.email=actions.payload.email
         }
         
     }
 })
 
-export const {addWork,addEducation,changeName,changeTitle,changeWork,deleteWork,deleteEducation,changeEducation} =resumeSlice.actions
+export const {
+    addSkill,
+    changePhone,
+    changeEmail,
+    deleteSkill,
+    changeSkill,
+    addWork,
+    addEducation,
+    changeName,
+    changeTitle,
+    changeWork,
+    deleteWork,
+    deleteEducation,
+    changeEducation,
+    changeProfile} =resumeSlice.actions
 export default resumeSlice.reducer
