@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import {useSelector,useDispatch} from "react-redux"
-import {addTodo,resetTodo} from "../features/todoSlice"
+import {addTodo,resetTodo} from "../features/resumeSlice"
 
 const TodoList = () => {
 

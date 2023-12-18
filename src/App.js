@@ -12,7 +12,7 @@ import Counter from "./redux_comps/counter";
 // import AppTodo from "./todo_redux_comps/appTodo";
 
 import counterSlice from "./features/counterSlice"
-import todoSlice from "./features/todoSlice"
+import todoSlice from "./features/resumeSlice"
 import AppTodo from './todo_redux_comps/appTodo';
 
 const myStore=configureStore({
