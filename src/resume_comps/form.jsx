@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -6,7 +6,8 @@ import jsPDF from 'jspdf';
 
 const Form = () => {
 
-    const { experiance, userName, educations, image, title, profile, skills,phone,email } = useSelector(myStore => myStore.resumeSlice)
+    const { experiance, userName, educations, image, title, profile, skills, phone, email } = useSelector(myStore => myStore.resumeSlice)
+    const { design1,design2,design3 } = useSelector(myStore => myStore.otherSlice)
 
 
     const downloadPDF = () => {
@@ -21,17 +22,22 @@ const Form = () => {
         })
     }
 
-    let class1 = 'text-center bg-danger text-white p-5'
-    let class2 = 'p-5 row'
+
 
     return (
         <div className='border rounded'>
             <div className=' topdf'>
-                <div className={class1}>
-                    <h1 >{userName}</h1>
-                    <p>{title}</p></div>
-                <div className={class2}>
-                    <div className='col-9 border-end'>
+                <div className={`row p-0 m-0 ${design1} ${design2}`}>
+                    <div className='col  p-5'>
+                        <h1 >{userName}</h1>
+                        <p>{title}</p>
+                    </div>
+                    <div className={`col-auto  ${design3}`}>
+                         <div className='rounded border' style={{width:'220px',height:'220px',backgroundImage:`url(${image || "https://turag.co.il/wp-content/uploads/2018/06/man.jpg"})`,backgroundSize:'cover'}}></div>
+                    </div>
+                </div>
+                <div className='row m-0'>
+                    <div className='col-8 border-end p-5'>
                         {profile && <h4 className='mt-3'><strong>Profile</strong></h4>}
                         <p className='mb-5'>{profile}</p>
 
@@ -54,8 +60,8 @@ const Form = () => {
                             </div>
                         })}
                     </div>
-                    <div className='col-3 text-center'>
-                        <p className='mt-4'>{phone}</p>
+                    <div className={`col-4 text-center ${design3}`}>
+                        <p className='mt-5'>{phone}</p>
                         <p>{email}</p>
                         {skills.length > 0 && <h4 className='mt-5'><strong>Skills</strong></h4>}
                         {skills.map(item => {
@@ -70,7 +76,7 @@ const Form = () => {
             </div>
 
 
-            <div className='text-center'><button className='btn btn-outline-info rounded' onClick={downloadPDF}>download</button></div>
+            <div className='text-center'><button className='btn btn-outline-dark rounded' onClick={downloadPDF}>download</button></div>
 
 
         </div>

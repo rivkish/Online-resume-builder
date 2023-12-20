@@ -8,7 +8,7 @@ const initValue={
     title:"",
 experiance:[],
 educations:[],
-image:"",
+image:"https://turag.co.il/wp-content/uploads/2018/06/man.jpg",
 skills:[]
 
 }
@@ -18,6 +18,17 @@ const resumeSlice=createSlice({
     initialState:initValue,
 
     reducers:{
+        allResume1:(state,actions)=>{
+            state.userName=actions.payload.resume.userName
+            state.phone=actions.payload.resume.phone
+            state.email=actions.payload.resume.email
+            state.profile=actions.payload.resume.profile
+            state.title=actions.payload.resume.title
+            state.experiance=actions.payload.resume.experiance
+            state.educations=actions.payload.resume.educations
+            state.image=actions.payload.resume.image
+            state.skills=actions.payload.resume.skills
+        },
         addWork:(state,actions)=>{
             state.experiance.push(actions.payload.work)
         },
@@ -65,6 +76,9 @@ const resumeSlice=createSlice({
         changeProfile:(state,actions)=>{
             state.profile=actions.payload.profile
         },
+        changeImage:(state,actions)=>{
+            state.image=actions.payload.image
+        },
         addSkill:(state,actions)=>{
             state.skills.push(actions.payload.skill)
         },
@@ -105,5 +119,7 @@ export const {
     deleteWork,
     deleteEducation,
     changeEducation,
+    changeImage,
+    allResume1,
     changeProfile} =resumeSlice.actions
 export default resumeSlice.reducer

@@ -15,13 +15,13 @@ const myStore=configureStore({
 const AppForm = () => {
   return (
     <div >
-        <Provider store={myStore}>
-            <div className='row'>
+        {/* <Provider store={myStore}> */}
+            <div className='row p-0 m-0'>
                 <div className='col-6'>  <FormInput></FormInput></div>
       <div className='col-6'><Form></Form></div>
         
         </div>
-</Provider>
+{/* </Provider> */}
     </div>
   )
 }

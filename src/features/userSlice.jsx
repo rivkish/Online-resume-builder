@@ -1,9 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit"
 
 const initValue={
+    id:"",
 name:"",
 phone:"",
 email:"",
+password:"",
 resumes:[]
 }
 
@@ -21,12 +23,21 @@ const userSlice=createSlice({
         changeEmail:(state,actions)=>{
             state.email=actions.payload.email
         },
+        changeId:(state,actions)=>{
+            state.id=actions.payload.id
+        },
+        changePass:(state,actions)=>{
+            state.password=actions.payload.pass
+        },
         addResume:(state,actions)=>{
             state.resumes.push(actions.payload.resume)
+        },
+        allResume:(state,actions)=>{
+            state.resumes=actions.payload.resume
         }
         
     }
 })
 
-export const {changeName,changePhone,changeEmail,addResume} =userSlice.actions
+export const {changeName,changePass,changeId,changePhone,changeEmail,addResume,allResume} =userSlice.actions
 export default userSlice.reducer

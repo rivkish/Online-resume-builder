@@ -27,7 +27,7 @@ const WorkExperience = (props) => {
                     <h2 className="accordion-header">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${item.id}`} aria-expanded="false" aria-controls={`flush-collapse${item.id}`}>
                             {item.companyName||"company"}
-                            <div className='w-100 text-end'> <button className='btn' onClick={()=>{dispatch(deleteWork({id:item.id}))}}><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>        
+                            <div className='w-100 text-end'> <div className='btn' onClick={()=>{dispatch(deleteWork({id:item.id}))}}><i className="fa fa-trash-o" aria-hidden="true"></i></div></div>        
                         </button>
                     </h2>
                     <div id={`flush-collapse${item.id}`} className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
