@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 
+
 const Form = () => {
 
     const { experiance, userName, educations, image, title, profile, skills, phone, email } = useSelector(myStore => myStore.resumeSlice)
@@ -33,9 +34,10 @@ const Form = () => {
                         <p>{title}</p>
                     </div>
                     <div className={`col-auto  ${design3}`}>
+                         {/* <img src={URL.createObjectURL(image)} className='rounded border' style={{width:'220px',height:'220px'}}></img> */}
                          <div className='rounded border' style={{width:'220px',height:'220px',backgroundImage:`url(${image || "https://turag.co.il/wp-content/uploads/2018/06/man.jpg"})`,backgroundSize:'cover'}}></div>
                     </div>
-                </div>
+                </div> 
                 <div className='row m-0'>
                     <div className='col-8 border-end p-5'>
                         {profile && <h4 className='mt-3'><strong>Profile</strong></h4>}
