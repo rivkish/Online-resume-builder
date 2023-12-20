@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-
+import html2pdf from 'html2pdf.js';
 
 
 const Form = () => {
@@ -23,11 +23,24 @@ const Form = () => {
         })
     }
 
+    const downloadAsPdf = () => {
+        const element = document.getElementById('pdf-component');
+        const opt = {
+          margin: 10,
+          filename: 'myfile.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+        html2pdf().from(element).set(opt).save();
+      };
+    
+
 
 
     return (
         <div className='border rounded'>
-            <div className=' topdf'>
+            <div className=' topdf' id='pdf-component'>
                 <div className={`row p-0 m-0 ${design1} ${design2}`}>
                     <div className='col  p-5'>
                         <h1 >{userName}</h1>
