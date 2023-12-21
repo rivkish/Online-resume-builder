@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit"
 const initValue={
     design1:'',
     design2:'',
-    design3:''
+    design3:'',
+    img:null
 // class2:'',
 }
 
@@ -20,10 +21,13 @@ const otherSlice=createSlice({
         },
         changeClass3:(state,actions)=>{
             state.design3=actions.payload.design3
-        }
+        },
+        changeImageFile:(state,actions)=>{
+            state.img=actions.payload.image
+        },
         
     }
 })
 
-export const {changeClass1,changeClass2,changeClass3} =otherSlice.actions
+export const {changeClass1,changeClass2,changeClass3,changeImageFile} =otherSlice.actions
 export default otherSlice.reducer

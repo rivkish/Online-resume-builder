@@ -8,7 +8,7 @@ const initValue={
     title:"",
 experiance:[],
 educations:[],
-image:"https://turag.co.il/wp-content/uploads/2018/06/man.jpg",
+image:"",
 skills:[]
 
 }

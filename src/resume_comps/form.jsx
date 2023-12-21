@@ -8,7 +8,7 @@ import html2pdf from 'html2pdf.js';
 const Form = () => {
 
     const { experiance, userName, educations, image, title, profile, skills, phone, email } = useSelector(myStore => myStore.resumeSlice)
-    const { design1,design2,design3 } = useSelector(myStore => myStore.otherSlice)
+    const { design1,design2,design3,img } = useSelector(myStore => myStore.otherSlice)
 
 
     const downloadPDF = () => {
@@ -19,7 +19,7 @@ const Form = () => {
             const componentWidth = doc.internal.pageSize.getWidth()
             const componentHeight = doc.internal.pageSize.getHeight()
             doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
-            doc.save('resume.pdf')
+            doc.save(`${userName}_cv.pdf`)
         })
     }
 
@@ -37,7 +37,7 @@ const Form = () => {
     
 
 
-
+// let src=URL.createObjectURL(image)
     return (
         <div className='border rounded'>
             <div className=' topdf' id='pdf-component'>
@@ -47,8 +47,11 @@ const Form = () => {
                         <p>{title}</p>
                     </div>
                     <div className={`col-auto  ${design3}`}>
-                         {/* <img src={URL.createObjectURL(image)} className='rounded border' style={{width:'220px',height:'220px'}}></img> */}
+                        {/* {img} */}
+{
+    img!=null?<div className='rounded border' style={{width:'220px',height:'220px',backgroundImage:`url(${URL.createObjectURL(img) || "https://turag.co.il/wp-content/uploads/2018/06/man.jpg"})`,backgroundSize:'cover'}}></div>:
                          <div className='rounded border' style={{width:'220px',height:'220px',backgroundImage:`url(${image || "https://turag.co.il/wp-content/uploads/2018/06/man.jpg"})`,backgroundSize:'cover'}}></div>
+                         }
                     </div>
                 </div> 
                 <div className='row m-0'>

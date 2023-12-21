@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from "react-hook-form"
 import WorkExperience from './workExperience';
 import { changeName, changeTitle, addWork, addEducation, changeProfile, addSkill, changePhone, changeEmail, changeImage } from "../features/resumeSlice"
-import { changeClass1,changeClass2, changeClass3 } from "../features/otherSlice"
+import { changeClass1,changeClass2, changeClass3 ,changeImageFile} from "../features/otherSlice"
 import { useDispatch, useSelector } from 'react-redux';
 import uuid4 from 'uuid4';
 import Education from './education';
@@ -39,7 +39,8 @@ const FormInput = () => {
 
     useEffect(() => {
         if (upImage)
-            uploadImage()
+        dispatch(changeImageFile({image:upImage}))
+            // uploadImage()
     }, [upImage])
 
     useEffect(() => {
@@ -62,7 +63,7 @@ const FormInput = () => {
         uploadBytes(imgRef, upImage).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
                 console.log(url)
-                dispatch(changeImage({ image: url }))
+                dispatch(changeImage({image:url}))
             })
         })
     }
@@ -80,6 +81,7 @@ const FormInput = () => {
 
 
     const addNewDoc = async () => {
+        uploadImage()
         const ref = collection(db, 'resumes')
         await addDoc(ref, {
             userName: userName || "",
